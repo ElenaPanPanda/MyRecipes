@@ -10,10 +10,10 @@
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/view_icon"
+        android:id="@+id/change_view_icon"
         android:icon="@drawable/ic_carousel"
-        android:title="@string/view"
-        android:contentDescription="@string/view"
+        android:title="@string/change_view"
+        android:contentDescription="@string/change_view"
         app:showAsAction="ifRoom" />
 
 </menu>

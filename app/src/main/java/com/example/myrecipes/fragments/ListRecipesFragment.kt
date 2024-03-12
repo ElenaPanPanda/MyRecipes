@@ -2,18 +2,12 @@ package com.example.myrecipes.fragments
 
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
 import android.view.View
-import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import com.example.myrecipes.EXAMPLE_LIST
-import com.example.myrecipes.ListRecipes
 import com.example.myrecipes.R
-import com.example.myrecipes.Recipe
 import com.example.myrecipes.adapters.AdapterForCards
 import com.example.myrecipes.adapters.AdapterForList
 import com.example.myrecipes.databinding.FragmentListRecipesBinding
@@ -21,11 +15,15 @@ import com.example.myrecipes.databinding.FragmentListRecipesBinding
 
 class ListRecipesFragment : Fragment(R.layout.fragment_list_recipes) {
     private lateinit var binding: FragmentListRecipesBinding
+    private val snapHelper = LinearSnapHelper()
+    private var cardsView = true
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentListRecipesBinding.bind(view)
 
+
+        setCardsView()
 
         binding.topAppBar.setNavigationOnClickListener {
             // Handle navigation icon press
@@ -37,26 +35,46 @@ class ListRecipesFragment : Fragment(R.layout.fragment_list_recipes) {
                     // Handle edit text press
                     true
                 }
-                R.id.view_icon -> {
-                    // Handle favorite icon press
+                R.id.change_view_icon -> {
+
+
+                    cardsView = if (cardsView) {
+                        setListView()
+                        menuItem.setIcon(R.drawable.ic_list)
+                        false
+                    } else {
+                        setCardsView()
+                        menuItem.setIcon(R.drawable.ic_carousel)
+                        true
+                    }
+
                     true
                 }
                 else -> false
             }
         }
 
+
+
+
+
+    }
+
+    private fun setCardsView() {
         binding.recycleView.apply {
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             adapter = AdapterForCards(EXAMPLE_LIST)
 
-            val helper = LinearSnapHelper()
-            helper.attachToRecyclerView(this)
+            snapHelper.attachToRecyclerView(this)
         }
+    }
 
-        /*binding.recycleView.apply {
+    private fun setListView() {
+        binding.recycleView.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = AdapterForList(EXAMPLE_LIST)
-        }*/
 
+            snapHelper.attachToRecyclerView(null)
+        }
     }
 }

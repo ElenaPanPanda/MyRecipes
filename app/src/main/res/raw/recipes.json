@@ -4,14 +4,19 @@
       "title": "Title 1",
       "image": "url 1",
       "ingredients": [
-        "first ingredient",
-        "second ingredient"
+        {
+          "quantity": "first quantity 1",
+          "ingredient": "second ingredient 1"
+        },
+        {
+          "quantity": "second quantity 1",
+          "ingredient": "second ingredient 1"
+        }
       ],
-      "icons": [
-        "🌿",
-        "🍗",
-        "🍪",
-        "🍯"
+      "categories": [
+        "vegetables",
+        "meat",
+        "bakery"
       ],
       "instructions": "big instructions for recipe 1"
     },
@@ -19,13 +24,18 @@
       "title": "Title 2",
       "image": "url 2",
       "ingredients": [
-        "first ingredient",
-        "second ingredient"
+        {
+          "quantity": "first quantity 2",
+          "ingredient": "second ingredient 2"
+        },
+        {
+          "quantity": "second quantity 2",
+          "ingredient": "second ingredient 2"
+        }
       ],
-      "icons": [
-        "🍗",
-        "🍪",
-        "🍯"
+      "categories": [
+        "meat",
+        "bakery"
       ],
       "instructions": "big instructions for recipe 2"
     },
@@ -33,14 +43,19 @@
       "title": "Title 3",
       "image": "url 3",
       "ingredients": [
-        "first ingredient",
-        "second ingredient"
+        {
+          "quantity": "first quantity 3",
+          "ingredient": "second ingredient 3"
+        },
+        {
+          "quantity": "second quantity 3",
+          "ingredient": "second ingredient 3"
+        }
       ],
-      "icons": [
-        "🌿",
-        "🍗",
-        "🍪",
-        "🍯"
+      "categories": [
+        "vegetables",
+        "meat",
+        "bakery"
       ],
       "instructions": "big instructions for recipe 3"
     }

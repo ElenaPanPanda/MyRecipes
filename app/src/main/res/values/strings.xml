@@ -4,4 +4,7 @@
     <string name="title">Title</string>
     <string name="quantity">quantity</string>
     <string name="ingredient">ingredient</string>
+    <string name="search">search</string>
+    <string name="view">view</string>
+    <string name="image">image</string>
 </resources>

@@ -6,12 +6,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myrecipes.ListRecipes
 import com.example.myrecipes.R
+import com.example.myrecipes.Recipe
 import com.squareup.picasso.Picasso
 
 class AdapterForList(
-    private val adapterList: ListRecipes
+    private val adapterList: List<Recipe>
 ) : RecyclerView.Adapter<AdapterForList.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val image: ImageView = view.findViewById(R.id.image_in_list)
@@ -28,11 +28,11 @@ class AdapterForList(
         )
     }
 
-    override fun getItemCount(): Int = adapterList.listRecipes.size
+    override fun getItemCount(): Int = adapterList.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val item = adapterList.listRecipes[position]
+        val item = adapterList[position]
 
         Picasso.get()
             .load(item.image)

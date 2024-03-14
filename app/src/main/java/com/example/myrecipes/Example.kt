@@ -12,11 +12,10 @@ val RECIPE_1 = Recipe(
         )
     ),
     categories = listOf(
-        "vegetables",
-        "meat",
-        "bakery"
+
     ),
-    instructions = "big instructions for recipe 1"
+    instructions = "big instructions for recipe 1",
+    favorite = false
 )
 
 val RECIPE_2 = Recipe(
@@ -31,10 +30,10 @@ val RECIPE_2 = Recipe(
         )
     ),
     categories = listOf(
-        "meat",
-        "bakery"
+
     ),
-    instructions = "big instructions for recipe 2"
+    instructions = "big instructions for recipe 2",
+    favorite = false
 )
 
 val RECIPE_3 = Recipe(
@@ -49,11 +48,10 @@ val RECIPE_3 = Recipe(
         )
     ),
     categories = listOf(
-        "vegetables",
-        "meat",
-        "bakery"
+
     ),
-    instructions = "big instructions for recipe 3"
+    instructions = "big instructions for recipe 3",
+    favorite = true
 )
 
 

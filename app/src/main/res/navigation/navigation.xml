@@ -6,6 +6,16 @@
     app:startDestination="@id/listRecipesFragment">
 
     <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.example.myrecipes.fragments.CategoriesFragment"
+        android:label="com.example.myrecipes.fragments.CategoriesFragment"
+        tools:layout="@layout/fragment_categories">
+        <action
+            android:id="@+id/action_categoriesFragment_to_listRecipesFragment"
+            app:destination="@+id/listRecipesFragment" />
+    </fragment>
+
+    <fragment
         android:id="@+id/listRecipesFragment"
         android:name="com.example.myrecipes.fragments.ListRecipesFragment"
         android:label="fragment_list_recipes"
@@ -21,6 +31,5 @@
         android:label="com.example.myrecipes.fragments.RecipeDetailsFragment"
         tools:layout="@layout/fragment_recipe_details" >
     </fragment>
-
 
 </navigation>

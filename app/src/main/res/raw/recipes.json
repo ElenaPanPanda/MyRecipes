@@ -18,7 +18,8 @@
         "meat",
         "bakery"
       ],
-      "instructions": "big instructions for recipe 1"
+      "instructions": "big instructions for recipe 1",
+      "favorite": false
     },
     {
       "title": "Title 2",
@@ -37,7 +38,8 @@
         "meat",
         "bakery"
       ],
-      "instructions": "big instructions for recipe 2"
+      "instructions": "big instructions for recipe 2",
+      "favorite": false
     },
     {
       "title": "Title 3",
@@ -57,7 +59,8 @@
         "meat",
         "bakery"
       ],
-      "instructions": "big instructions for recipe 3"
+      "instructions": "big instructions for recipe 3",
+      "favorite": true
     }
   ]
 }

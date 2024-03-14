@@ -3,6 +3,7 @@ package com.example.myrecipes.fragments
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,9 +36,6 @@ class ListRecipesFragment : Fragment(R.layout.fragment_list_recipes) {
 
         setCardsView()
 
-        binding.topAppBar.setNavigationOnClickListener {
-            // Handle navigation icon press
-        }
 
         binding.topAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
@@ -65,16 +63,18 @@ class ListRecipesFragment : Fragment(R.layout.fragment_list_recipes) {
         }
 
 
+        val parcelableCategory = arguments?.getParcelable<Categories>(Categories.KEY_ARG)
+
+        Log.d("asdf", parcelableCategory.toString())
+
         scope.launch {
-            val response = ApiRest.client.getAll(Categories.SOUP)
+            val response = ApiRest.client.getRecipesList(parcelableCategory)
             list.clear()
             list.addAll(response.listRecipes)
             withContext(Dispatchers.Main) {
                 binding.recipesListRecycleView.adapter?.notifyDataSetChanged()
             }
         }
-
-
     }
 
     private fun setCardsView() {

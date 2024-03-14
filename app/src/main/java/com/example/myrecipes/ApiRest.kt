@@ -15,5 +15,5 @@ object ApiRest {
             ignoreUnknownKeys = true
         }.asConverterFactory(contentType))
         .build() // Create Retrofit instance
-        .create(RetroFitRest::class.java)
+        .create(RecipesApi::class.java)
 }

@@ -3,7 +3,6 @@ package com.example.myrecipes.fragments
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,18 +33,19 @@ class ListRecipesFragment : Fragment(R.layout.fragment_list_recipes) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentListRecipesBinding.bind(view)
 
+        val parcelableCategory = arguments?.getParcelable<Categories>(Categories.KEY_ARG)
+
         setCardsView()
 
+        binding.topAppBar.title = parcelableCategory?.title ?: ""
+
+        binding.topAppBar.setNavigationOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
 
         binding.topAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.search_icon -> {
-                    // Handle edit text press
-                    true
-                }
                 R.id.change_view_icon -> {
-
-
                     cardsView = if (cardsView) {
                         setListView()
                         menuItem.setIcon(R.drawable.ic_list)
@@ -58,14 +58,19 @@ class ListRecipesFragment : Fragment(R.layout.fragment_list_recipes) {
 
                     true
                 }
+                R.id.add_icon -> {
+                    // Handle edit text press
+                    true
+                }
+                R.id.search_icon -> {
+                    // Handle edit text press
+                    true
+                }
+
                 else -> false
             }
         }
 
-
-        val parcelableCategory = arguments?.getParcelable<Categories>(Categories.KEY_ARG)
-
-        Log.d("asdf", parcelableCategory.toString())
 
         scope.launch {
             val response = ApiRest.client.getRecipesList(parcelableCategory)

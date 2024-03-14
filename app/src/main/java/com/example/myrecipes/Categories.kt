@@ -2,7 +2,6 @@ package com.example.myrecipes
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
-import kotlinx.serialization.SerialName
 
 @Parcelize
 enum class Categories(
@@ -13,8 +12,7 @@ enum class Categories(
         "Vegetables",
         "https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=1968&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     ),
-    @SerialName("DESSERT")
-    DESSERTS(
+    DESSERT(
         "Desserts",
         "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     ),

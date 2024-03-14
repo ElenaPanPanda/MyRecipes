@@ -19,7 +19,7 @@
             android:minHeight="?attr/actionBarSize"
             android:layout_marginStart="16dp"
             app:title="@string/app_name"
-            app:menu="@menu/top_app_bar" />
+            app:menu="@menu/top_app_bar_categories" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

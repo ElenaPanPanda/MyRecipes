@@ -11,11 +11,39 @@ import com.example.myrecipes.Recipe
 import com.squareup.picasso.Picasso
 
 class AdapterForList(
-    private val adapterList: List<Recipe>
+    private val listRecipes: List<Recipe>,
+    private val listener: RecyclerViewEvent
 ) : RecyclerView.Adapter<AdapterForList.ViewHolder>() {
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+
+    interface RecyclerViewEvent {
+        fun onItemClickForList(recipe: Recipe)
+    }
+
+    inner class ItemViewHolder(
+        view: View
+    ) : RecyclerView.ViewHolder(view), View.OnClickListener {
+        init {
+            view.setOnClickListener(this)
+        }
+
+        //Getting reference to views within the row layout
+        override fun onClick(v: View?) {
+            val recipe = listRecipes[adapterPosition]
+            listener.onItemClickForList(recipe)
+        }
+
+    }
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
         val image: ImageView = view.findViewById(R.id.image_in_list)
         val title: TextView = view.findViewById(R.id.title_in_list)
+
+        init {
+            view.setOnClickListener(this)
+        }
+        override fun onClick(v: View?) {
+            val recipe = listRecipes[adapterPosition]
+            listener.onItemClickForList(recipe)
+        }
     }
 
     override fun onCreateViewHolder(
@@ -28,11 +56,11 @@ class AdapterForList(
         )
     }
 
-    override fun getItemCount(): Int = adapterList.size
+    override fun getItemCount(): Int = listRecipes.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val item = adapterList[position]
+        val item = listRecipes[position]
 
         Picasso.get()
             .load(item.image)

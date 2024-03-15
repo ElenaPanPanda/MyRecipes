@@ -6,17 +6,17 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myrecipes.Categories
+import com.example.myrecipes.Category
 import com.example.myrecipes.R
 import com.squareup.picasso.Picasso
 
 class AdapterForCategories(
-    private val list: List<Categories>,
+    private val list: List<Category>,
     private val listener: RecyclerViewEvent
 ) : RecyclerView.Adapter<AdapterForCategories.ViewHolder>() {
 
     interface RecyclerViewEvent {
-        fun onItemClick(position: Int)
+        fun onItemClick(category: Category)
     }
 
 
@@ -33,10 +33,8 @@ class AdapterForCategories(
         }
 
         override fun onClick(v: View?) {
-            val position = adapterPosition
-            if (position != RecyclerView.NO_POSITION) {
-                listener.onItemClick(position)
-            }
+            val category = list[adapterPosition]
+            listener.onItemClick(category)
         }
     }
 

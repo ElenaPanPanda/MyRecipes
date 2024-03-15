@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-enum class Categories(
+enum class Category(
     val title: String,
     val image: String
 ): Parcelable {

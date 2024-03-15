@@ -11,7 +11,7 @@ val RECIPE_1 = Recipe(
             "10", "ingredient 2"
         )
     ),
-    categories = listOf(
+    rawCategories = listOf(
 
     ),
     instructions = "big instructions for recipe 1",
@@ -29,7 +29,7 @@ val RECIPE_2 = Recipe(
             "10", "ingredient 2"
         )
     ),
-    categories = listOf(
+    rawCategories = listOf(
 
     ),
     instructions = "big instructions for recipe 2",
@@ -47,7 +47,7 @@ val RECIPE_3 = Recipe(
             "10", "ingredient 2"
         )
     ),
-    categories = listOf(
+    rawCategories = listOf(
 
     ),
     instructions = "big instructions for recipe 3",

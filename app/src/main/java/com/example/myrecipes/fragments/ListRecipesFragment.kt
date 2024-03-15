@@ -5,10 +5,11 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import com.example.myrecipes.ApiRest
-import com.example.myrecipes.Categories
+import com.example.myrecipes.Category
 import com.example.myrecipes.R
 import com.example.myrecipes.Recipe
 import com.example.myrecipes.adapters.AdapterForCards
@@ -21,7 +22,11 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
-class ListRecipesFragment : Fragment(R.layout.fragment_list_recipes) {
+class ListRecipesFragment :
+    Fragment(R.layout.fragment_list_recipes),
+    AdapterForCards.RecyclerViewEvent,
+    AdapterForList.RecyclerViewEvent
+{
     private lateinit var binding: FragmentListRecipesBinding
     private val snapHelper = LinearSnapHelper()
     private var cardsView = true
@@ -33,7 +38,7 @@ class ListRecipesFragment : Fragment(R.layout.fragment_list_recipes) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentListRecipesBinding.bind(view)
 
-        val parcelableCategory = arguments?.getParcelable<Categories>(Categories.KEY_ARG)
+        val parcelableCategory = arguments?.getParcelable<Category>(Category.KEY_ARG)
 
         setCardsView()
 
@@ -58,10 +63,12 @@ class ListRecipesFragment : Fragment(R.layout.fragment_list_recipes) {
 
                     true
                 }
+
                 R.id.add_icon -> {
                     // Handle edit text press
                     true
                 }
+
                 R.id.search_icon -> {
                     // Handle edit text press
                     true
@@ -84,8 +91,9 @@ class ListRecipesFragment : Fragment(R.layout.fragment_list_recipes) {
 
     private fun setCardsView() {
         binding.recipesListRecycleView.apply {
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-            adapter = AdapterForCards(list)
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            adapter = AdapterForCards(list, this@ListRecipesFragment)
 
             snapHelper.attachToRecyclerView(this)
         }
@@ -94,9 +102,25 @@ class ListRecipesFragment : Fragment(R.layout.fragment_list_recipes) {
     private fun setListView() {
         binding.recipesListRecycleView.apply {
             layoutManager = LinearLayoutManager(requireContext())
-            adapter = AdapterForList(list)
+            adapter = AdapterForList(list, this@ListRecipesFragment)
 
             snapHelper.attachToRecyclerView(null)
         }
+    }
+
+    override fun onItemClickForCards(recipe: Recipe) {
+        println("  asdf 1")
+
+        val bundle = Bundle()
+        bundle.putParcelable(Recipe.KEY_ARG, recipe)
+        findNavController().navigate(R.id.recipeDetailsFragment, bundle)
+    }
+
+    override fun onItemClickForList(recipe: Recipe) {
+        println("  asdf 2")
+
+        val bundle = Bundle()
+        bundle.putParcelable(Recipe.KEY_ARG, recipe)
+        findNavController().navigate(R.id.recipeDetailsFragment, bundle)
     }
 }

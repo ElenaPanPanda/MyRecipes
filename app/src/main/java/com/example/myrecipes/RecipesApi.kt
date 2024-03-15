@@ -11,7 +11,7 @@ import retrofit2.http.Query
 interface RecipesApi {
 
     @GET("recipes/all")
-    suspend fun getRecipesList(@Query("category") category: Categories? = null): ListRecipes
+    suspend fun getRecipesList(@Query("category") category: Category? = null): ListRecipes
 
     @GET("recipes/{id}")
     suspend fun getRecipe(@Path("id") id: String): Recipe

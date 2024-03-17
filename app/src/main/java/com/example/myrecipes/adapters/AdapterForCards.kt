@@ -25,7 +25,7 @@ class AdapterForCards(
 
         val image: ImageView = view.findViewById(R.id.image_in_card)
         val title: TextView = view.findViewById(R.id.title_in_card)
-        val ingredientsRV: RecyclerView = view.findViewById(R.id.ingredients_recycle_view)
+        val ingredientsRV: RecyclerView = view.findViewById(R.id.ingredients_rv_in_card)
 
         init {
             view.setOnClickListener(this)

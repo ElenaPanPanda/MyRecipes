@@ -9,12 +9,22 @@ val RECIPE_1 = Recipe(
         ),
         Ingredient(
             "10", "ingredient 2"
-        )
+        ),
+        Ingredient(
+            "42", "safoj[pfoa"
+        ),
+        Ingredient(
+            "456", "sadfaet"
+        ),
+        Ingredient(
+            "7", "aaaaaaaaaaa"
+        ),
+        Ingredient("999", "ppdkfwasdfwepohionfha;oiuewnpodifhsidapoeiruhgfnjdk;a")
     ),
     rawCategories = listOf(
 
     ),
-    instructions = "big instructions for recipe 1",
+    instructions = "In a medium bowl, combine hulled and quartered strawberries, 4 Tbsp sugar and 4 Tbsp liqueur, stir to combine then cover and refrigerate at least 1 hour and up to 2 hours, stirring once or twice.\\nTwo photos of cut strawberries in a bowl with one having sugar being added to the bowl Two photos of cut up strawberries for Strawberry Romanoff Just before serving, in a large mixing bowl, combine 1 cup cold heavy cream and 1/4 cup powdered sugar, and beat with an electric mixer until stiff peaks form.\\nUsing a spatula, fold in 1/4 cup sour cream just until well blended.\\nTo serve, stir strawberries then divide between 6 serving glasses or bowls.\\nYou can spoon a little syrup over the berries if you like.\\nYou can also use this syrup to soak a cake.\\nSpoon cream over strawberries, dividing evenly.\\nYou can also use an ice cream scoop with trigger release for a nice rounded puff of cream.\\nServe right away or chill and enjoy within 2 hours of assembly.\nIn a medium bowl, combine hulled and quartered strawberries, 4 Tbsp sugar and 4 Tbsp liqueur, stir to combine then cover and refrigerate at least 1 hour and up to 2 hours, stirring once or twice.\\nTwo photos of cut strawberries in a bowl with one having sugar being added to the bowl Two photos of cut up strawberries for Strawberry Romanoff Just before serving, in a large mixing bowl, combine 1 cup cold heavy cream and 1/4 cup powdered sugar, and beat with an electric mixer until stiff peaks form.\\nUsing a spatula, fold in 1/4 cup sour cream just until well blended.\\nTo serve, stir strawberries then divide between 6 serving glasses or bowls.\\nYou can spoon a little syrup over the berries if you like.\\nYou can also use this syrup to soak a cake.\\nSpoon cream over strawberries, dividing evenly.\\nYou can also use an ice cream scoop with trigger release for a nice rounded puff of cream.\\nServe right away or chill and enjoy within 2 hours of assembly.\"",
     favorite = false
 )
 

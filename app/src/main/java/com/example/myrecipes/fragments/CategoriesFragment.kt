@@ -21,11 +21,26 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories), AdapterForCat
             layoutManager = GridLayoutManager(requireContext(), 2)
             adapter = AdapterForCategories(Category.LIST, this@CategoriesFragment)
         }
+
+        binding.topAppBar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.add_icon -> {
+                    AddRecipeDialogFragment().show(childFragmentManager, AddRecipeDialogFragment.TAG)
+
+                    true
+                }
+
+                R.id.search_icon -> {
+                    // Handle edit text press
+                    true
+                }
+
+                else -> false
+            }
+        }
     }
 
     override fun onItemClick(category: Category) {
-        println("  asdf 0")
-
         val bundle = Bundle()
         bundle.putParcelable(Category.KEY_ARG, category)
         findNavController().navigate(R.id.listRecipesFragment, bundle)

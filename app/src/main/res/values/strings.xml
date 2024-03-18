@@ -10,4 +10,19 @@
     <string name="category">Category</string>
     <string name="category_image">category image</string>
     <string name="add">add</string>
+    <string name="image_url">image url</string>
+    <string name="instructions">instructions</string>
+    <string name="save">Save</string>
+    <string name="amount">amount</string>
+    <string name="add_ingredient_button">add ingredient button</string>
+    <string name="new_recipe">New recipe:</string>
+    <string name="categories">Categories</string>
+    <string name="vegetables">Vegetables</string>
+    <string name="desserts">Desserts</string>
+    <string name="bakery">Bakery</string>
+    <string name="meat">Meat</string>
+    <string name="drinks">Drinks</string>
+    <string name="main_course">Main course</string>
+    <string name="soup">Soup</string>
+    <string name="open_categories_icon_button">open categories icon button</string>
 </resources>

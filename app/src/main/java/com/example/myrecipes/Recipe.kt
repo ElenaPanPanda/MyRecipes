@@ -21,7 +21,7 @@ data class Recipe(
     @SerialName("categories")
     val rawCategories: List<String>,
     val instructions: String,
-    val favorite: Boolean
+    var favorite: Boolean
 ) : Parcelable {
     val categories: List<Category>
         get() = rawCategories.map {
@@ -29,7 +29,7 @@ data class Recipe(
         }
 
     companion object {
-        val KEY_ARG = "recipe"
+        const val KEY_ARG = "recipe"
     }
 }
 

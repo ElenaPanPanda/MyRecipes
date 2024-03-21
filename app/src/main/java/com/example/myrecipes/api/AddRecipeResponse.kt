@@ -12,6 +12,20 @@ data class AddRecipeResponse(
 )
 
 @Serializable
+data class EditRecipeResponse(
+    val recipe: Recipe,
+    val success: Boolean,
+    val message: String
+)
+
+
+@Serializable
+data class DeleteRecipeResponse(
+    val success: Boolean,
+    val message: String
+)
+
+@Serializable
 data class ListRecipesResponse(
     @SerialName("recipes") val listRecipes: List<Recipe>
 )

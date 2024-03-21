@@ -25,8 +25,8 @@ interface RecipesApi {
     suspend fun editRecipe(
         @Path("id") id: String,
         @Body recipe: Recipe
-        ): Recipe
+        ):EditRecipeResponse
 
     @DELETE("recipes/{id}")
-    suspend fun deleteRecipe(@Path("id") id: String): Recipe
+    suspend fun deleteRecipe(@Path("id") id: String): DeleteRecipeResponse
 }

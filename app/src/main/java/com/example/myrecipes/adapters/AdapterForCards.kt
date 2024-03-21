@@ -25,7 +25,9 @@ class AdapterForCards(
 
         val image: ImageView = view.findViewById(R.id.image_in_card)
         val title: TextView = view.findViewById(R.id.title_in_card)
+        val like: ImageView = view.findViewById(R.id.like_ic_in_card)
         val ingredientsRV: RecyclerView = view.findViewById(R.id.ingredients_rv_in_card)
+
 
         init {
             view.setOnClickListener(this)
@@ -36,6 +38,7 @@ class AdapterForCards(
             listener.onItemClickForCards(recipe)
         }
     }
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -57,6 +60,12 @@ class AdapterForCards(
             .into(holder.image)
 
         holder.title.text = item.title
+
+
+        if (item.favorite)
+            holder.like.setBackgroundResource(R.drawable.ic_like)
+        else
+            holder.like.setBackgroundResource(R.drawable.ic_empty_like)
 
 
         holder.ingredientsRV.apply {

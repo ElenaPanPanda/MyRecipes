@@ -6,6 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".fragments.RecipeDetailsFragment">
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/delete_recipe_btn"
+        style="?attr/materialIconButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_trashcan"
+        app:iconSize="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/like_btn_in_details"
+        style="?attr/materialIconButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_empty_like"
+        app:iconSize="24dp"
+        app:layout_constraintEnd_toStartOf="@id/delete_recipe_btn"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/liner_in_details"
         android:layout_width="0dp"

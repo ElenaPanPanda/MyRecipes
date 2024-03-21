@@ -19,23 +19,11 @@ class AdapterForList(
         fun onItemClickForList(recipe: Recipe)
     }
 
-    inner class ItemViewHolder(
-        view: View
-    ) : RecyclerView.ViewHolder(view), View.OnClickListener {
-        init {
-            view.setOnClickListener(this)
-        }
 
-        //Getting reference to views within the row layout
-        override fun onClick(v: View?) {
-            val recipe = listRecipes[adapterPosition]
-            listener.onItemClickForList(recipe)
-        }
-
-    }
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
         val image: ImageView = view.findViewById(R.id.image_in_list)
         val title: TextView = view.findViewById(R.id.title_in_list)
+        val like: ImageView = view.findViewById(R.id.like_ic_in_list)
 
         init {
             view.setOnClickListener(this)
@@ -67,5 +55,10 @@ class AdapterForList(
             .into(holder.image)
 
         holder.title.text = item.title
+
+        if (item.favorite)
+            holder.like.setBackgroundResource(R.drawable.ic_like)
+        else
+            holder.like.setBackgroundResource(R.drawable.ic_empty_like)
     }
 }

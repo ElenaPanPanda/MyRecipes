@@ -43,6 +43,7 @@ android {
 
 dependencies {
 
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
     implementation("com.squareup.picasso:picasso:2.8")
     implementation ("androidx.viewpager2:viewpager2:1.0.0")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")

@@ -7,13 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.example.myrecipes.R
+import com.example.myrecipes.Recipe
+import com.example.myrecipes.api.ApiRest
 import com.example.myrecipes.databinding.FragmentAddRecipeBinding
 import com.example.myrecipes.databinding.IngredientAddLayoutBinding
+import kotlinx.coroutines.runBlocking
 
 
 class AddRecipeDialogFragment : DialogFragment(R.layout.fragment_add_recipe) {
     private lateinit var binding: FragmentAddRecipeBinding
-    private var liked = false
+    private var favorite = false
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return AlertDialog.Builder(requireActivity())
             .show()
@@ -47,15 +50,30 @@ class AddRecipeDialogFragment : DialogFragment(R.layout.fragment_add_recipe) {
         }
 
         binding.likeBtnInAddRecipe.setOnClickListener {
-            if (liked) {
+            favorite = if (favorite) {
                 binding.likeBtnInAddRecipe.setIconResource(R.drawable.ic_empty_like)
-                liked = false
+                false
             } else {
                 binding.likeBtnInAddRecipe.setIconResource(R.drawable.ic_like)
-                liked = true
+                true
             }
         }
 
+        binding.saveBtn.setOnClickListener {
+            showSaveRecipeDialog()
+        }
+
+    }
+
+
+    override fun onStart() {
+        super.onStart()
+        val dialog = dialog
+        if (dialog != null) {
+            val width = ViewGroup.LayoutParams.MATCH_PARENT
+            val height = ViewGroup.LayoutParams.MATCH_PARENT
+            dialog.window!!.setLayout(width, height)
+        }
     }
 
     private fun addIngredientField() {
@@ -67,13 +85,37 @@ class AddRecipeDialogFragment : DialogFragment(R.layout.fragment_add_recipe) {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        val dialog = dialog
-        if (dialog != null) {
-            val width = ViewGroup.LayoutParams.MATCH_PARENT
-            val height = ViewGroup.LayoutParams.MATCH_PARENT
-            dialog.window!!.setLayout(width, height)
+    private fun showSaveRecipeDialog() {
+        val alertDialogBuilder = AlertDialog.Builder(requireContext())
+            .setTitle(R.string.save_recipe)
+            .setPositiveButton(R.string.save, null)
+            .setNegativeButton(R.string.cancel, null)
+            .show()
+
+        val positiveBtn = alertDialogBuilder.getButton(AlertDialog.BUTTON_POSITIVE)
+        positiveBtn.setOnClickListener {
+            saveRecipe()
+        }
+    }
+
+    private fun saveRecipe() {
+        val newRecipe = Recipe(
+            //title = binding.titleAddEt.text.toString(),
+            id = "",
+            title = "My new recipe",
+            image = binding.imageUrlAddEt.text.toString(),
+            ingredients = listOf(
+
+            ),
+            rawCategories = listOf(
+
+            ),
+            instructions = binding.instructionsAddEt.text.toString(),
+            favorite = favorite
+        )
+
+        runBlocking {
+            ApiRest.client.addRecipe(newRecipe)
         }
     }
 

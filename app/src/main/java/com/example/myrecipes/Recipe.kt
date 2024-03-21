@@ -14,6 +14,7 @@ data class Ingredient(
 @Parcelize
 @Serializable
 data class Recipe(
+    val id: String,
     val title: String,
     val image: String,
     val ingredients: List<Ingredient>,
@@ -32,7 +33,3 @@ data class Recipe(
     }
 }
 
-@Serializable
-data class ListRecipes(
-    @SerialName("recipes") val listRecipes: List<Recipe>
-)

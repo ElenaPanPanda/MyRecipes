@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
-import com.example.myrecipes.ApiRest
+import com.example.myrecipes.api.ApiRest
 import com.example.myrecipes.Category
 import com.example.myrecipes.R
 import com.example.myrecipes.Recipe
@@ -65,7 +65,7 @@ class ListRecipesFragment :
                 }
 
                 R.id.add_icon -> {
-                    // Handle edit text press
+                    AddRecipeDialogFragment().show(childFragmentManager, AddRecipeDialogFragment.TAG)
                     true
                 }
 

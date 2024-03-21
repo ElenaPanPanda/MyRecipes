@@ -41,6 +41,5 @@ class RecipeDetailsFragment : Fragment(R.layout.fragment_recipe_details) {
         }
 
         binding.instructions.text = recipe.instructions
-
     }
 }

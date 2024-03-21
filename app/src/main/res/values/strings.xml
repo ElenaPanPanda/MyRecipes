@@ -25,4 +25,6 @@
     <string name="main_course">Main course</string>
     <string name="soup">Soup</string>
     <string name="open_categories_icon_button">open categories icon button</string>
+    <string name="save_recipe">Save recipe</string>
+    <string name="cancel">Cancel</string>
 </resources>

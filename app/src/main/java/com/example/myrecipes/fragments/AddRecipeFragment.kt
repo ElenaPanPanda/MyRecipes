@@ -92,7 +92,7 @@ class AddRecipeFragment : Fragment(R.layout.fragment_add_recipe) {
             .setPositiveButton(R.string.save) { _, _ ->
                 saveRecipe()
 
-                // TODO navigation back button
+                requireActivity().onBackPressedDispatcher.onBackPressed()
             }
             .setNegativeButton(R.string.cancel, null)
             .show()

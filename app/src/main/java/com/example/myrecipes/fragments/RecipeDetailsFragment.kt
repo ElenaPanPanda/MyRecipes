@@ -87,11 +87,9 @@ class RecipeDetailsFragment : Fragment(R.layout.fragment_recipe_details) {
     AlertDialog.Builder(requireContext())
         .setTitle(R.string.delete_this_recipe)
         .setPositiveButton(R.string.delete) { _, _ ->
-
             deleteRecipe(theRecipe)
 
             requireActivity().onBackPressedDispatcher.onBackPressed()
-
         }
         .setNegativeButton(R.string.cancel, null)
         .show()

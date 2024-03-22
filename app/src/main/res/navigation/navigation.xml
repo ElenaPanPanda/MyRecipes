@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_categoriesFragment_to_listRecipesFragment"
             app:destination="@+id/listRecipesFragment" />
+        <action
+            android:id="@+id/action_categoriesFragment_to_addRecipeFragment"
+            app:destination="@id/addRecipeFragment" />
     </fragment>
 
     <fragment
@@ -23,7 +26,16 @@
         <action
             android:id="@+id/action_listRecipesFragment_to_first_recipeDetailsFragment"
             app:destination="@id/recipeDetailsFragment" />
+        <action
+            android:id="@+id/action_listRecipesFragment_to_addRecipeFragment"
+            app:destination="@id/addRecipeFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/addRecipeFragment"
+        android:name="com.example.myrecipes.fragments.AddRecipeFragment"
+        android:label="com.example.myrecipes.fragments.AddRecipeFragment"
+        tools:layout="@layout/fragment_add_recipe" />
 
     <fragment
         android:id="@+id/recipeDetailsFragment"

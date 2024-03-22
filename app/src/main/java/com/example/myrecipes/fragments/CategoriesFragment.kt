@@ -25,7 +25,7 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories), AdapterForCat
         binding.topAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.add_icon -> {
-                    AddRecipeDialogFragment().show(childFragmentManager, AddRecipeDialogFragment.TAG)
+                    findNavController().navigate(R.id.addRecipeFragment)
 
                     true
                 }

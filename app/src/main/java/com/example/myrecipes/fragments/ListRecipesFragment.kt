@@ -65,7 +65,8 @@ class ListRecipesFragment :
                 }
 
                 R.id.add_icon -> {
-                    AddRecipeDialogFragment().show(childFragmentManager, AddRecipeDialogFragment.TAG)
+                    findNavController().navigate(R.id.addRecipeFragment)
+
                     true
                 }
 

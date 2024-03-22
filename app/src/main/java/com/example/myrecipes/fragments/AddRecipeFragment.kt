@@ -1,12 +1,10 @@
 package com.example.myrecipes.fragments
 
 import android.app.AlertDialog
-import android.app.Dialog
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.View
-import android.view.ViewGroup
 import android.widget.CheckBox
-import androidx.fragment.app.DialogFragment
 import com.example.myrecipes.Category
 import com.example.myrecipes.R
 import com.example.myrecipes.Recipe
@@ -17,11 +15,10 @@ import com.example.myrecipes.databinding.IngredientAddLayoutBinding
 import kotlinx.coroutines.runBlocking
 
 
-class AddRecipeDialogFragment : DialogFragment(R.layout.fragment_add_recipe) {
+class AddRecipeFragment : Fragment(R.layout.fragment_add_recipe) {
     private lateinit var binding: FragmentAddRecipeBinding
     private val checkBoxList = mutableListOf<CheckBox>()
     private var favorite = false
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentAddRecipeBinding.bind(view)
@@ -47,6 +44,7 @@ class AddRecipeDialogFragment : DialogFragment(R.layout.fragment_add_recipe) {
                     binding.openCategoriesBtn.setIconResource(R.drawable.ic_up)
 
                 }
+
                 else -> {}
             }
         }
@@ -63,17 +61,6 @@ class AddRecipeDialogFragment : DialogFragment(R.layout.fragment_add_recipe) {
 
         binding.saveBtn.setOnClickListener {
             showSaveRecipeDialog()
-        }
-
-    }
-
-    override fun onStart() {
-        super.onStart()
-        val dialog = dialog
-        if (dialog != null) {
-            val width = ViewGroup.LayoutParams.MATCH_PARENT
-            val height = ViewGroup.LayoutParams.MATCH_PARENT
-            dialog.window!!.setLayout(width, height)
         }
     }
 
@@ -105,17 +92,10 @@ class AddRecipeDialogFragment : DialogFragment(R.layout.fragment_add_recipe) {
             .setPositiveButton(R.string.save) { _, _ ->
                 saveRecipe()
 
-                dismiss()
+                // TODO navigation back button
             }
             .setNegativeButton(R.string.cancel, null)
             .show()
-
-/*        val positiveBtn = alertDialogBuilder.getButton(AlertDialog.BUTTON_POSITIVE)
-        positiveBtn.setOnClickListener {
-            saveRecipe()
-
-            dismiss()
-        }*/
     }
 
     private fun saveRecipe() {
@@ -128,9 +108,8 @@ class AddRecipeDialogFragment : DialogFragment(R.layout.fragment_add_recipe) {
 
 
         val newRecipe = Recipe(
-            //title = binding.titleAddEt.text.toString(),
             id = "",
-            title = "TEST",
+            title = binding.titleAddEt.text.toString(),
             image = binding.imageUrlAddEt.text.toString(),
             ingredients = listOf(
 
@@ -143,9 +122,5 @@ class AddRecipeDialogFragment : DialogFragment(R.layout.fragment_add_recipe) {
         runBlocking {
             ApiRest.client.addRecipe(newRecipe)
         }
-    }
-
-    companion object {
-        const val TAG = "TAG_Dialog"
     }
 }

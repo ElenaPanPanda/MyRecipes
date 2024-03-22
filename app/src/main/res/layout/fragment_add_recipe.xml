@@ -152,57 +152,7 @@
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/open_categories_btn">
-
-            <CheckBox
-                android:id="@+id/checkbox_child_1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/vegetables" />
-
-            <CheckBox
-                android:id="@+id/checkbox_child_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/desserts" />
-
-            <CheckBox
-                android:id="@+id/checkbox_child_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/bakery" />
-
-            <CheckBox
-                android:id="@+id/checkbox_child_4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/meat" />
-
-            <CheckBox
-                android:id="@+id/checkbox_child_5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/meat" />
-
-            <CheckBox
-                android:id="@+id/checkbox_child_6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/drinks" />
-
-            <CheckBox
-                android:id="@+id/checkbox_child_7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/main_course" />
-
-            <CheckBox
-                android:id="@+id/checkbox_child_8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/soup" />
-
-        </LinearLayout>
+            app:layout_constraintTop_toBottomOf="@id/open_categories_btn" />
 
         <com.google.android.material.divider.MaterialDivider
             android:id="@+id/divider_categories"

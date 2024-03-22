@@ -5,10 +5,13 @@ import android.app.Dialog
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import androidx.fragment.app.DialogFragment
+import com.example.myrecipes.Category
 import com.example.myrecipes.R
 import com.example.myrecipes.Recipe
 import com.example.myrecipes.api.ApiRest
+import com.example.myrecipes.databinding.CategoryCheckBoxBinding
 import com.example.myrecipes.databinding.FragmentAddRecipeBinding
 import com.example.myrecipes.databinding.IngredientAddLayoutBinding
 import kotlinx.coroutines.runBlocking
@@ -16,6 +19,7 @@ import kotlinx.coroutines.runBlocking
 
 class AddRecipeDialogFragment : DialogFragment(R.layout.fragment_add_recipe) {
     private lateinit var binding: FragmentAddRecipeBinding
+    private val checkBoxList = mutableListOf<CheckBox>()
     private var favorite = false
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return AlertDialog.Builder(requireActivity())
@@ -26,9 +30,10 @@ class AddRecipeDialogFragment : DialogFragment(R.layout.fragment_add_recipe) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentAddRecipeBinding.bind(view)
 
-        repeat(2) {
-            addIngredientField()
-        }
+        addIngredientField()
+        addIngredientField()
+
+        addCategoriesCheckBoxes()
 
         binding.addIngredientBtn.setOnClickListener {
             addIngredientField()
@@ -65,7 +70,6 @@ class AddRecipeDialogFragment : DialogFragment(R.layout.fragment_add_recipe) {
 
     }
 
-
     override fun onStart() {
         super.onStart()
         val dialog = dialog
@@ -85,6 +89,19 @@ class AddRecipeDialogFragment : DialogFragment(R.layout.fragment_add_recipe) {
         }
     }
 
+    private fun addCategoriesCheckBoxes() {
+        Category.values().forEach { category ->
+
+            val newView = CategoryCheckBoxBinding.inflate(layoutInflater)
+            binding.categoriesCheckboxContainer.addView(newView.root)
+
+            newView.checkbox.text = category.title
+            newView.checkbox.contentDescription = category.name
+
+            checkBoxList.add(newView.checkbox)
+        }
+    }
+
     private fun showSaveRecipeDialog() {
         val alertDialogBuilder = AlertDialog.Builder(requireContext())
             .setTitle(R.string.save_recipe)
@@ -99,17 +116,23 @@ class AddRecipeDialogFragment : DialogFragment(R.layout.fragment_add_recipe) {
     }
 
     private fun saveRecipe() {
+        val categoriesToAdd = mutableListOf<String>()
+
+        checkBoxList.forEach { checkBox ->
+            if (checkBox.isChecked)
+                categoriesToAdd.add(checkBox.contentDescription.toString())
+        }
+
+
         val newRecipe = Recipe(
             //title = binding.titleAddEt.text.toString(),
             id = "",
-            title = "My new recipe",
+            title = "TEST",
             image = binding.imageUrlAddEt.text.toString(),
             ingredients = listOf(
 
             ),
-            rawCategories = listOf(
-
-            ),
+            rawCategories = categoriesToAdd,
             instructions = binding.instructionsAddEt.text.toString(),
             favorite = favorite
         )

@@ -10,8 +10,8 @@
     <string name="category">Category</string>
     <string name="category_image">category image</string>
     <string name="add">add</string>
-    <string name="image_url">image url</string>
-    <string name="instructions">instructions</string>
+    <string name="image_url">Image url</string>
+    <string name="instructions">Instructions</string>
     <string name="save">Save</string>
     <string name="amount">amount</string>
     <string name="add_ingredient_button">add ingredient button</string>
@@ -30,4 +30,6 @@
     <string name="like_icon">like icon</string>
     <string name="delete_this_recipe">Delete this recipe?</string>
     <string name="delete">Delete</string>
+    <string name="test">test</string>
+    <string name="test_capslock">TEST</string>
 </resources>

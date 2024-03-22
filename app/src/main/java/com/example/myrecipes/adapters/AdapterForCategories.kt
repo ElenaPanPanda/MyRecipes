@@ -11,7 +11,7 @@ import com.example.myrecipes.R
 import com.squareup.picasso.Picasso
 
 class AdapterForCategories(
-    private val list: List<Category>,
+    private val list: Array<Category>,
     private val listener: RecyclerViewEvent
 ) : RecyclerView.Adapter<AdapterForCategories.ViewHolder>() {
 

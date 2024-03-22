@@ -19,7 +19,7 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories), AdapterForCat
 
         binding.categoriesRecycleView.apply {
             layoutManager = GridLayoutManager(requireContext(), 2)
-            adapter = AdapterForCategories(Category.LIST, this@CategoriesFragment)
+            adapter = AdapterForCategories(Category.values(), this@CategoriesFragment)
         }
 
         binding.topAppBar.setOnMenuItemClickListener { menuItem ->

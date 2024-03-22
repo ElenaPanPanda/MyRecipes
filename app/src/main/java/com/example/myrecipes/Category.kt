@@ -35,19 +35,10 @@ enum class Category(
     SOUP(
         "Soup",
         "https://images.unsplash.com/photo-1605034997426-399051e3f7ae?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    ),
-    FAVORITE(
-        "Favorite",
-        "https://plus.unsplash.com/premium_photo-1673591578805-963e9a71f18d?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     );
 
     companion object {
-        val LIST = buildList {
-            for (value in values())
-                add(value)
-        }
-
-        val KEY_ARG = "category"
+        const val KEY_ARG = "category"
     }
 }
 

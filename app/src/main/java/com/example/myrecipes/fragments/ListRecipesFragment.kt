@@ -25,8 +25,7 @@ import kotlinx.coroutines.withContext
 class ListRecipesFragment :
     Fragment(R.layout.fragment_list_recipes),
     AdapterForCards.RecyclerViewEvent,
-    AdapterForList.RecyclerViewEvent
-{
+    AdapterForList.RecyclerViewEvent {
     private lateinit var binding: FragmentListRecipesBinding
     private val snapHelper = LinearSnapHelper()
     private var cardsView = true
@@ -40,7 +39,10 @@ class ListRecipesFragment :
 
         val parcelableCategory = arguments?.getParcelable<Category>(Category.KEY_ARG)
 
-        setCardsView()
+        if (cardsView)
+            setCardsView()
+        else
+            setListView()
 
         binding.topAppBar.title = parcelableCategory?.title ?: ""
 

@@ -21,10 +21,6 @@ class AddRecipeDialogFragment : DialogFragment(R.layout.fragment_add_recipe) {
     private lateinit var binding: FragmentAddRecipeBinding
     private val checkBoxList = mutableListOf<CheckBox>()
     private var favorite = false
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        return AlertDialog.Builder(requireActivity())
-            .show()
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

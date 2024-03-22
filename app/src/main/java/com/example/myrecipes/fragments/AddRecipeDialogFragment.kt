@@ -103,16 +103,22 @@ class AddRecipeDialogFragment : DialogFragment(R.layout.fragment_add_recipe) {
     }
 
     private fun showSaveRecipeDialog() {
-        val alertDialogBuilder = AlertDialog.Builder(requireContext())
+        AlertDialog.Builder(requireContext())
             .setTitle(R.string.save_recipe)
-            .setPositiveButton(R.string.save, null)
+            .setPositiveButton(R.string.save) { _, _ ->
+                saveRecipe()
+
+                dismiss()
+            }
             .setNegativeButton(R.string.cancel, null)
             .show()
 
-        val positiveBtn = alertDialogBuilder.getButton(AlertDialog.BUTTON_POSITIVE)
+/*        val positiveBtn = alertDialogBuilder.getButton(AlertDialog.BUTTON_POSITIVE)
         positiveBtn.setOnClickListener {
             saveRecipe()
-        }
+
+            dismiss()
+        }*/
     }
 
     private fun saveRecipe() {

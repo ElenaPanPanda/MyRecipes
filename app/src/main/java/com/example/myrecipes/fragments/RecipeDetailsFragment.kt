@@ -65,10 +65,10 @@ class RecipeDetailsFragment : Fragment(R.layout.fragment_recipe_details) {
             true
         }
 
-        changeOnServer(theRecipe)
+        changeLikeOnServer(theRecipe)
     }
 
-    private fun changeOnServer(theRecipe: Recipe) {
+    private fun changeLikeOnServer(theRecipe: Recipe) {
         theRecipe.favorite = favorite
 
         runBlocking {

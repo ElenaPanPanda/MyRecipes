@@ -1,7 +1,7 @@
 package com.example.myrecipes.api
 
-import com.example.myrecipes.Category
-import com.example.myrecipes.Recipe
+import com.example.myrecipes.data.Category
+import com.example.myrecipes.data.Recipe
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET

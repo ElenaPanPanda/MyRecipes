@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myrecipes.Category
-import com.example.myrecipes.DefaultImage
+import com.example.myrecipes.data.Category
+import com.example.myrecipes.data.DefaultImage
 import com.example.myrecipes.R
 import com.squareup.picasso.Picasso
 

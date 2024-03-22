@@ -1,15 +1,8 @@
-package com.example.myrecipes
+package com.example.myrecipes.data
 
 import android.os.Parcelable
 import kotlinx.serialization.*
 import kotlinx.parcelize.Parcelize
-
-@Parcelize
-@Serializable
-data class Ingredient(
-    val quantity: String,
-    val ingredient: String
-) : Parcelable
 
 @Parcelize
 @Serializable

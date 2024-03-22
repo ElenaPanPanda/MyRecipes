@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myrecipes.Ingredient
+import com.example.myrecipes.data.Ingredient
 import com.example.myrecipes.R
 
 
@@ -21,7 +21,7 @@ class AdapterForIngredients(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_ingredients, parent, false)
+                .inflate(R.layout.item_ingredient, parent, false)
         )
     }
 

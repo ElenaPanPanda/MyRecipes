@@ -9,9 +9,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import com.example.myrecipes.api.ApiRest
-import com.example.myrecipes.Category
+import com.example.myrecipes.data.Category
 import com.example.myrecipes.R
-import com.example.myrecipes.Recipe
+import com.example.myrecipes.data.Recipe
 import com.example.myrecipes.adapters.AdapterForCards
 import com.example.myrecipes.adapters.AdapterForList
 import com.example.myrecipes.databinding.FragmentListRecipesBinding

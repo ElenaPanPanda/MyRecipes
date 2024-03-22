@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.myrecipes.Category
+import com.example.myrecipes.data.Category
 import com.example.myrecipes.R
 import com.example.myrecipes.adapters.AdapterForCategories
 import com.example.myrecipes.databinding.FragmentCategoriesBinding

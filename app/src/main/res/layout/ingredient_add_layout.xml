@@ -25,7 +25,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ingredient_add"
+        android:id="@+id/ingredient_add_tf"
         android:layout_width="0dp"
         android:layout_marginTop="8dp"
         android:layout_height="wrap_content"

@@ -1,6 +1,6 @@
 package com.example.myrecipes.api
 
-import com.example.myrecipes.Recipe
+import com.example.myrecipes.data.Recipe
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 

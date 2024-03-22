@@ -7,9 +7,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myrecipes.DefaultImage
+import com.example.myrecipes.data.DefaultImage
 import com.example.myrecipes.R
-import com.example.myrecipes.Recipe
+import com.example.myrecipes.data.Recipe
 import com.squareup.picasso.Picasso
 
 

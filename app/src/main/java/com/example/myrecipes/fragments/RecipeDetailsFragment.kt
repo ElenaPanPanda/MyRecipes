@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.myrecipes.DefaultImage
+import com.example.myrecipes.data.DefaultImage
 import com.example.myrecipes.R
-import com.example.myrecipes.Recipe
+import com.example.myrecipes.data.Recipe
 import com.example.myrecipes.adapters.AdapterForIngredients
 import com.example.myrecipes.api.ApiRest
 import com.example.myrecipes.databinding.FragmentRecipeDetailsBinding

@@ -51,6 +51,7 @@ class AddRecipeDialogFragment : DialogFragment(R.layout.fragment_add_recipe) {
                     binding.openCategoriesBtn.setIconResource(R.drawable.ic_up)
 
                 }
+                else -> {}
             }
         }
 

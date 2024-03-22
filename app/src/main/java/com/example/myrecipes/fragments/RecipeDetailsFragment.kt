@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.myrecipes.DefaultImage
 import com.example.myrecipes.R
 import com.example.myrecipes.Recipe
 import com.example.myrecipes.adapters.AdapterForIngredients
@@ -24,9 +25,14 @@ class RecipeDetailsFragment : Fragment(R.layout.fragment_recipe_details) {
 
         val theRecipe = arguments?.getParcelable<Recipe>(Recipe.KEY_ARG)!!
 
-
         Picasso.get()
-            .load(theRecipe.image)
+            .load(
+                theRecipe.image.ifBlank {
+                    DefaultImage.URL
+                })
+            .priority(Picasso.Priority.NORMAL)
+            .placeholder(R.drawable.ic_black_image)
+            .error(R.drawable.ic_black_image)
             .into(binding.imageInDetails)
 
         binding.titleInDetails.text = theRecipe.title

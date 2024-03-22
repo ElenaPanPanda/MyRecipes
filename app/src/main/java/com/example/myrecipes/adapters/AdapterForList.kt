@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myrecipes.DefaultImage
 import com.example.myrecipes.R
 import com.example.myrecipes.Recipe
 import com.squareup.picasso.Picasso
@@ -51,7 +52,13 @@ class AdapterForList(
         val item = listRecipes[position]
 
         Picasso.get()
-            .load(item.image)
+            .load(
+                item.image.ifBlank {
+                    DefaultImage.URL
+                })
+            .priority(Picasso.Priority.NORMAL)
+            .placeholder(R.drawable.ic_black_image)
+            .error(R.drawable.ic_black_image)
             .into(holder.image)
 
         holder.title.text = item.title

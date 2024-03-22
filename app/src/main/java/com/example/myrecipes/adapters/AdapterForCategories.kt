@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myrecipes.Category
+import com.example.myrecipes.DefaultImage
 import com.example.myrecipes.R
 import com.squareup.picasso.Picasso
 
@@ -53,9 +54,25 @@ class AdapterForCategories(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = list[position]
 
+        /*var image = ""
+
+        if (item.image.isNotBlank()) {
+            image = item.image
+        } else {
+            image =
+        }*/
+
+
         Picasso.get()
-            .load(item.image)
+            .load(
+                item.image.ifBlank {
+                    DefaultImage.URL
+                })
+            .priority(Picasso.Priority.NORMAL)
+            .placeholder(R.drawable.ic_black_image)
+            .error(R.drawable.ic_black_image)
             .into(holder.image)
+
 
         holder.title.text = item.title
     }
